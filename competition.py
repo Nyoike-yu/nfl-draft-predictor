@@ -97,10 +97,8 @@ imputer = KNNImputer(n_neighbors=5)
 X_imp = pd.DataFrame(imputer.fit_transform(X), columns=feature_cols)
 X_test_imp = pd.DataFrame(imputer.transform(X_test), columns=feature_cols)
 
-# ==========================================
+
 # OPTIMIZED MODEL PARAMETERS 
-# ==========================================
-# ---> NEW: Injected Optuna Best Parameters <---
 lgb_params = {
     'n_estimators': 2031, 
     'learning_rate': 0.02064351485101507, 
@@ -138,9 +136,8 @@ for fold, (tr_idx, val_idx) in enumerate(gkf.split(X_imp, target, groups=groups)
     X_tr, X_val = X_imp.iloc[tr_idx].copy(), X_imp.iloc[val_idx].copy()
     y_tr, y_val = target.iloc[tr_idx], target.iloc[val_idx]
     
-    # ---------------------------------------------------------
+
     # NO-LEAK TARGET ENCODING
-    # ---------------------------------------------------------
     global_mean = y_tr.mean()
     k = 20
     test_fold = X_test_imp.copy() 
