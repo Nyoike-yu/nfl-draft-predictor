@@ -1,4 +1,4 @@
-🏈 Player Draft Prediction Pipeline (GCI_UoJ)
+Player Draft Prediction Pipeline (GCI_UoJ)
 Overview
 This repository contains a robust, leak-proof machine learning pipeline designed to predict whether a player will be drafted based on their physical attributes, combine drills, and background information.
 
